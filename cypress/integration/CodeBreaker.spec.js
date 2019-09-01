@@ -8,6 +8,9 @@ describe('Code breaker tests', function() {
     })
 
     it('Guess secret number', function() {
+        cy.request('http://localhost:4200/setsecret/1234')
+
+        cy.visit('http://localhost:3000/')
         cy.get('#textNumber')
         .type('1234')
         .should('have.value','1234')
